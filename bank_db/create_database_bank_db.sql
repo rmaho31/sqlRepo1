@@ -6,7 +6,7 @@ USE bank_db;
 -- create the Accounts table
 CREATE TABLE Accounts (
   ID 		    	INT            PRIMARY KEY  AUTO_INCREMENT,
-  account_holder    VARCHAR(50)    NOT NULL     UNIQUE,
+  account_holder    VARCHAR(50)    NOT NULL,
   balance    		DECIMAL(18,2)  NOT NULL,
   fees      		DECIMAL(18,2)  NOT NULL
 ); 
@@ -21,7 +21,7 @@ INSERT INTO Accounts VALUES
 -- create Transactions table
 CREATE TABLE Transactions (
   ID 		    INT 			PRIMARY KEY  AUTO_INCREMENT,
-  amount    	DECIMAL(18,2)	NOT NULL     UNIQUE,
+  amount    	DECIMAL(18,2)	NOT NULL,
   txn_type    	VARCHAR(10)		NOT NULL,
   account_ID    INT				NOT NULL,
   FOREIGN KEY (account_ID) REFERENCES Accounts(ID)
